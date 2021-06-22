@@ -1,1 +1,1 @@
-export * from './home-screen/home-screen';
+export * from './home';
