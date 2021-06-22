@@ -146,6 +146,12 @@ android {
         }
     }
     signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
         release {
             if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
                 storeFile file(MYAPP_UPLOAD_STORE_FILE)
@@ -212,6 +218,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    compile project(':react-native-splash-screen')
 }
 
 // Run this once to be able to run the application with BUCK
