@@ -1,6 +1,17 @@
 import React from 'react';
 
-import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Image,
+} from 'react-native';
+import {
+  widthPercentageToDP,
+  heightPercentageToDP,
+} from 'react-native-responsive-screen';
+import WithLocalSvg, {SvgUri} from 'react-native-svg';
 
 const Header = props => {
   const {navigationState, navigation, activeTintColor, inactiveTintColor} =
@@ -8,9 +19,12 @@ const Header = props => {
   const activeTabIndex = navigation.state.index;
 
   return (
-    <View style={styles.containerHeader}>
-      <View style={styles.textContainer}>
-        <Text style={styles.textWhite}>Header</Text>
+    <View>
+      <View>
+        <Image
+          source={require('./sample.jpg')}
+          style={{height: heightPercentageToDP('20%')}}
+        />
       </View>
       <View style={styles.tabContainer}>
         {navigationState.routes.map((route, index) => {
@@ -45,7 +59,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'cyan',
     height: 150,
   },
   textContainer: {
@@ -62,7 +75,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 10,
     alignItems: 'center',
-    height: 40,
+    height: 60,
+  },
+  stretch: {
+    width: 50,
+    height: 20,
+    resizeMode: 'stretch',
   },
 });
 export default Header;
