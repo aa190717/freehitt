@@ -23,7 +23,10 @@ const Header = props => {
       <View>
         <Image
           source={require('./sample.jpg')}
-          style={{height: heightPercentageToDP('20%')}}
+          style={{
+            height: heightPercentageToDP('20%'),
+            width: widthPercentageToDP('100%'),
+          }}
         />
       </View>
       <View style={styles.tabContainer}>
