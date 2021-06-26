@@ -1,5 +1,14 @@
 import React, {useEffect} from 'react';
-import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {
+  Button,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -9,6 +18,7 @@ import {getEventsActions} from '../../../states/events/events.action';
 import {RootState} from '../../../states/store';
 
 export const Live = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const events: any = useSelector((state: RootState) => {
     return state.event.events;
@@ -23,17 +33,20 @@ export const Live = () => {
           {events ? (
             events.map((y: any, i: any) => {
               return (
-                <Image
+                <TouchableOpacity
                   key={i}
-                  style={{
-                    height: heightPercentageToDP('20%'),
-                    width: widthPercentageToDP('90%'),
-                    marginTop: 20,
-                  }}
-                  source={{
-                    uri: y.url,
-                  }}
-                />
+                  onPress={() => navigation.navigate('Selector')}>
+                  <Image
+                    style={{
+                      height: heightPercentageToDP('20%'),
+                      width: widthPercentageToDP('90%'),
+                      marginTop: 20,
+                    }}
+                    source={{
+                      uri: y.url,
+                    }}
+                  />
+                </TouchableOpacity>
               );
             })
           ) : (
