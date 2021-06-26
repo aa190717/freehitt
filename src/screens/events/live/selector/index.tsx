@@ -43,33 +43,33 @@ export const SelectorScreen = () => {
   const [allrounderValue, setAllrounderValue] = useState(false);
 
   const [items1, setItems1] = useState([
-    {label: 'Apple', value: 'apple'},
-    {label: 'Banana', value: 'banana'},
+    {label: 'R Ashwin', value: 'ashwin'},
+    {label: 'R Jadeja', value: 'jadeja'},
   ]);
   const [items2, setItems2] = useState([
-    {label: 'Apple1', value: 'apple1'},
-    {label: 'Banana1', value: 'banana1'},
+    {label: 'H Pandya', value: 'hpandya'},
+    {label: 'R Jadeja', value: 'rvjadeja'},
   ]);
   const [items3, setItems3] = useState([
-    {label: 'Apple3', value: 'apple3'},
-    {label: 'Banana3', value: 'banana3'},
+    {label: 'M.S Dhoni', value: 'dhoni'},
+    {label: 'R Pant', value: 'pant'},
   ]);
   const [items4, setItems4] = useState([
-    {label: 'Apple4', value: 'apple4'},
-    {label: 'Banana4', value: 'banana4'},
+    {label: 'V Kohli', value: 'kohli'},
+    {label: 'R Sharma', value: 'sharma'},
   ]);
   const [items5, setItems5] = useState([
-    {label: 'Apple5', value: 'apple5'},
-    {label: 'Banana5', value: 'banana5'},
+    {label: 'J Bhumra', value: 'bhumra'},
+    {label: 'M Shami', value: 'shami'},
   ]);
   const [items6, setItems6] = useState([
-    {label: 'Apple6', value: 'apple6'},
-    {label: 'Banana6', value: 'banana6'},
+    {label: 'H Pandya', value: 'pandya'},
+    {label: 'R Jedeja', value: 'rjadeja'},
   ]);
   return (
     <View>
       <SafeAreaView>
-        <ScrollView>
+        <ScrollView nestedScrollEnabled={true}>
           <Image
             source={require('./sample.jpg')}
             style={{
@@ -78,7 +78,7 @@ export const SelectorScreen = () => {
             }}
           />
 
-          <View style={styles.leftView}>
+          <View style={{...styles.leftView, zIndex: 90}}>
             <Image source={require('./wicket.png')} style={styles.imageView} />
             <DropDownPicker
               open={spiner}
@@ -87,15 +87,16 @@ export const SelectorScreen = () => {
               setOpen={setSpiner}
               setValue={setSpinerValue}
               setItems={setItems1}
-              zIndex={5}
-              zIndexInverse={4}
+              zIndex={9}
+              zIndexInverse={8}
               placeholder="Spiner"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              listMode="SCROLLVIEW"
             />
           </View>
 
-          <View style={styles.rightView}>
+          <View style={{...styles.rightView, zIndex: 80}}>
             <Image source={require('./filder.png')} style={styles.imageView} />
             <DropDownPicker
               open={filder}
@@ -104,15 +105,16 @@ export const SelectorScreen = () => {
               setOpen={setFilder}
               setValue={setFilderValue}
               setItems={setItems2}
-              zIndex={2}
-              zIndexInverse={1}
+              zIndex={6}
+              zIndexInverse={5}
               placeholder="Filder"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              listMode="SCROLLVIEW"
             />
           </View>
 
-          <View style={styles.leftView}>
+          <View style={{...styles.leftView, zIndex: 70}}>
             <Image source={require('./keeper.png')} style={styles.imageView} />
             <DropDownPicker
               open={keeper}
@@ -126,10 +128,11 @@ export const SelectorScreen = () => {
               placeholder="Keeper"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              listMode="SCROLLVIEW"
             />
           </View>
 
-          <View style={styles.rightView}>
+          <View style={{...styles.rightView, zIndex: 60}}>
             <Image source={require('./bat.png')} style={styles.imageView} />
             <DropDownPicker
               open={batsman}
@@ -143,10 +146,11 @@ export const SelectorScreen = () => {
               placeholder="Batsman"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              listMode="SCROLLVIEW"
             />
           </View>
 
-          <View style={styles.leftView}>
+          <View style={{...styles.leftView, zIndex: 50}}>
             <Image source={require('./ball.png')} style={styles.imageView} />
             <DropDownPicker
               open={pacer}
@@ -160,10 +164,11 @@ export const SelectorScreen = () => {
               placeholder="Pacer"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              listMode="SCROLLVIEW"
             />
           </View>
 
-          <View style={styles.rightView}>
+          <View style={{...styles.rightView, zIndex: 40}}>
             <Image source={require('./all.png')} style={styles.imageView} />
             <DropDownPicker
               open={allrounder}
@@ -172,11 +177,11 @@ export const SelectorScreen = () => {
               setOpen={setAllrounder}
               setValue={setAllrounderValue}
               setItems={setItems6}
-              zIndex={2}
-              zIndexInverse={1}
               placeholder="All rounder"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              listMode="SCROLLVIEW"
+              dropDownDirection="BOTTOM"
             />
           </View>
 
@@ -210,6 +215,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     alignSelf: 'flex-end',
+    position: 'relative',
   },
   imageView: {
     width: 30,
@@ -219,7 +225,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     left: 20,
-    zIndex: 9,
+    zIndex: 10,
   },
   placeholderStyle: {
     color: 'gray',
