@@ -1,5 +1,11 @@
-import React, { useLayoutEffect } from 'react';
-import {Alert, Image, StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
+import React, {useLayoutEffect} from 'react';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import Events from '../../navigation/events';
 
 export const HomeScreen = ({navigation}: any) => {

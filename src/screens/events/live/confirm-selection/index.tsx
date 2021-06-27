@@ -1,7 +1,6 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {
-  Alert,
   Image,
   SafeAreaView,
   ScrollView,
