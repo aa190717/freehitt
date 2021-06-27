@@ -114,7 +114,6 @@
 				9C381283697F41C19179AEB7 /* Pods-Freehitt-FreehittTests.debug.xcconfig */,
 				042188AE2636963FCDF67166 /* Pods-Freehitt-FreehittTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
