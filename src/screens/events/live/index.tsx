@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
 import {
-  Button,
-  Image,
   ImageBackground,
   SafeAreaView,
   ScrollView,

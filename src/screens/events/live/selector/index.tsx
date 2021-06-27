@@ -1,8 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
-import React, {useState} from 'react';
+import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {
-  Alert,
-  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -11,12 +9,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
-import {Icon} from 'react-native-elements';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
+import SelectDropdown from 'react-native-select-dropdown';
 
 const AppButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
@@ -26,48 +23,12 @@ const AppButton = ({onPress, title}) => (
 
 export const SelectorScreen = () => {
   const navigation = useNavigation();
-  const [spiner, setSpiner] = useState(false);
-  const [spinerValue, setSpinerValue] = useState(false);
-
-  const [filder, setFilder] = useState(false);
-  const [filderValue, setFilderValue] = useState(false);
-
-  const [keeper, setKeeper] = useState(false);
-  const [keeperValue, setKeeperValue] = useState(false);
-
-  const [batsman, setBatsman] = useState(false);
-  const [batsmanValue, setBatsmanValue] = useState(false);
-
-  const [pacer, setPacer] = useState(false);
-  const [pacerValue, setPacerValue] = useState(false);
-
-  const [allrounder, setAllrounder] = useState(false);
-  const [allrounderValue, setAllrounderValue] = useState(false);
-
-  const [items1, setItems1] = useState([
-    {label: 'R Ashwin', value: 'ashwin'},
-    {label: 'R Jadeja', value: 'jadeja'},
-  ]);
-  const [items2, setItems2] = useState([
-    {label: 'H Pandya', value: 'hpandya'},
-    {label: 'R Jadeja', value: 'rvjadeja'},
-  ]);
-  const [items3, setItems3] = useState([
-    {label: 'M.S Dhoni', value: 'dhoni'},
-    {label: 'R Pant', value: 'pant'},
-  ]);
-  const [items4, setItems4] = useState([
-    {label: 'V Kohli', value: 'kohli'},
-    {label: 'R Sharma', value: 'sharma'},
-  ]);
-  const [items5, setItems5] = useState([
-    {label: 'J Bhumra', value: 'bhumra'},
-    {label: 'M Shami', value: 'shami'},
-  ]);
-  const [items6, setItems6] = useState([
-    {label: 'H Pandya', value: 'pandya'},
-    {label: 'R Jedeja', value: 'rjadeja'},
-  ]);
+  const spiner = ['R Ashwin', 'R Jadeja'];
+  const filder = ['H Pandya', 'R Jadeja'];
+  const keeper = ['M.S Dhoni', 'R Pant'];
+  const batsman = ['V Kohli', 'R Sharma'];
+  const pacer = ['J Bhumra', 'M Shami'];
+  const allrounder = ['H Pandya', 'R Jedeja'];
   return (
     <View>
       <SafeAreaView>
@@ -89,155 +50,187 @@ export const SelectorScreen = () => {
               Banglore vs Mumbai
             </Text>
           </View>
+          <View style={{marginLeft: 20, marginRight: 20,}}>
+            <View
+              style={{
+                ...styles.leftView,
+              }}>
+              <Image
+                source={require('../../../../assets/images/wicket.png')}
+                style={styles.imageView}
+              />
+              <SelectDropdown
+                data={spiner}
+                onSelect={(selectedItem, index) => {
+                  console.log(selectedItem, index);
+                }}
+                defaultButtonText={'Spiner'}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+                buttonStyle={styles.dropdown1BtnStyle}
+                buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                dropdownIconPosition={'right'}
+                dropdownStyle={styles.dropdown1DropdownStyle}
+                rowStyle={styles.dropdown1RowStyle}
+                rowTextStyle={styles.dropdown1RowTxtStyle}
+              />
+            </View>
 
-          <View style={{...styles.leftView, zIndex: 90}}>
-            <Image
-              source={require('../../../../assets/images/wicket.png')}
-              style={styles.imageView}
-            />
-            <DropDownPicker
-              open={spiner}
-              value={spinerValue}
-              items={items1}
-              setOpen={setSpiner}
-              setValue={setSpinerValue}
-              setItems={setItems1}
-              zIndex={9}
-              zIndexInverse={8}
-              placeholder="Spiner"
-              showArrowIcon={false}
-              placeholderStyle={styles.placeholderStyle}
-              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
-              listItemLabelStyle={{marginLeft: 20}}
-              listMode="SCROLLVIEW"
-              dropDownDirection="BOTTOM"
+            <View
+              style={{
+                ...styles.rightView,
+              }}>
+              <Image
+                source={require('../../../../assets/images/filder.png')}
+                style={styles.imageView}
+              />
+              <SelectDropdown
+                data={filder}
+                onSelect={(selectedItem, index) => {
+                  console.log(selectedItem, index);
+                }}
+                defaultButtonText={'Filder'}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+                buttonStyle={styles.dropdown1BtnStyle}
+                buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                dropdownIconPosition={'right'}
+                dropdownStyle={styles.dropdown1DropdownStyle}
+                rowStyle={styles.dropdown1RowStyle}
+                rowTextStyle={styles.dropdown1RowTxtStyle}
+              />
+            </View>
+
+            <View
+              style={{
+                ...styles.leftView,
+              }}>
+              <Image
+                source={require('../../../../assets/images/filder.png')}
+                style={styles.imageView}
+              />
+              <SelectDropdown
+                data={keeper}
+                onSelect={(selectedItem, index) => {
+                  console.log(selectedItem, index);
+                }}
+                defaultButtonText={'Keeper'}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+                buttonStyle={styles.dropdown1BtnStyle}
+                buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                dropdownIconPosition={'right'}
+                dropdownStyle={styles.dropdown1DropdownStyle}
+                rowStyle={styles.dropdown1RowStyle}
+                rowTextStyle={styles.dropdown1RowTxtStyle}
+              />
+            </View>
+
+            <View
+              style={{
+                ...styles.rightView,
+              }}>
+              <Image
+                source={require('../../../../assets/images/filder.png')}
+                style={styles.imageView}
+              />
+              <SelectDropdown
+                data={batsman}
+                onSelect={(selectedItem, index) => {
+                  console.log(selectedItem, index);
+                }}
+                defaultButtonText={'Batsman'}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+                buttonStyle={styles.dropdown1BtnStyle}
+                buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                dropdownIconPosition={'right'}
+                dropdownStyle={styles.dropdown1DropdownStyle}
+                rowStyle={styles.dropdown1RowStyle}
+                rowTextStyle={styles.dropdown1RowTxtStyle}
+              />
+            </View>
+
+            <View
+              style={{
+                ...styles.leftView,
+              }}>
+              <Image
+                source={require('../../../../assets/images/filder.png')}
+                style={styles.imageView}
+              />
+              <SelectDropdown
+                data={pacer}
+                onSelect={(selectedItem, index) => {
+                  console.log(selectedItem, index);
+                }}
+                defaultButtonText={'Pacer'}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+                buttonStyle={styles.dropdown1BtnStyle}
+                buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                dropdownIconPosition={'right'}
+                dropdownStyle={styles.dropdown1DropdownStyle}
+                rowStyle={styles.dropdown1RowStyle}
+                rowTextStyle={styles.dropdown1RowTxtStyle}
+              />
+            </View>
+
+            <View
+              style={{
+                ...styles.rightView,
+                zIndex: 80,
+              }}>
+              <Image
+                source={require('../../../../assets/images/filder.png')}
+                style={styles.imageView}
+              />
+              <SelectDropdown
+                data={allrounder}
+                onSelect={(selectedItem, index) => {
+                  console.log(selectedItem, index);
+                }}
+                defaultButtonText={'All rounder'}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+                buttonStyle={styles.dropdown1BtnStyle}
+                buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                dropdownIconPosition={'right'}
+                dropdownStyle={styles.dropdown1DropdownStyle}
+                rowStyle={styles.dropdown1RowStyle}
+                rowTextStyle={styles.dropdown1RowTxtStyle}
+              />
+            </View>
+
+            <AppButton
+              title="Continue"
+              onPress={() => navigation.navigate('Confirm')}
             />
           </View>
-
-          <View style={{...styles.rightView, zIndex: 80}}>
-            <Image
-              source={require('../../../../assets/images/filder.png')}
-              style={styles.imageView}
-            />
-            <DropDownPicker
-              open={filder}
-              value={filderValue}
-              items={items2}
-              setOpen={setFilder}
-              setValue={setFilderValue}
-              setItems={setItems2}
-              zIndex={6}
-              zIndexInverse={5}
-              placeholder="Filder"
-              showArrowIcon={false}
-              placeholderStyle={styles.placeholderStyle}
-              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
-              listItemLabelStyle={{marginLeft: 20}}
-              listMode="SCROLLVIEW"
-              dropDownDirection="BOTTOM"
-            />
-          </View>
-
-          <View style={{...styles.leftView, zIndex: 70}}>
-            <Image
-              source={require('../../../../assets/images/keeper.png')}
-              style={styles.imageView}
-            />
-            <DropDownPicker
-              open={keeper}
-              value={keeperValue}
-              items={items3}
-              setOpen={setKeeper}
-              setValue={setKeeperValue}
-              setItems={setItems3}
-              zIndex={2}
-              zIndexInverse={1}
-              placeholder="Keeper"
-              showArrowIcon={false}
-              placeholderStyle={styles.placeholderStyle}
-              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
-              listItemLabelStyle={{marginLeft: 20}}
-              listMode="SCROLLVIEW"
-              dropDownDirection="BOTTOM"
-            />
-          </View>
-
-          <View style={{...styles.rightView, zIndex: 60}}>
-            <Image
-              source={require('../../../../assets/images/bat.png')}
-              style={styles.imageView}
-            />
-            <DropDownPicker
-              open={batsman}
-              value={batsmanValue}
-              items={items4}
-              setOpen={setBatsman}
-              setValue={setBatsmanValue}
-              setItems={setItems4}
-              zIndex={2}
-              zIndexInverse={1}
-              placeholder="Batsman"
-              showArrowIcon={false}
-              placeholderStyle={styles.placeholderStyle}
-              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
-              listItemLabelStyle={{marginLeft: 20}}
-              listMode="SCROLLVIEW"
-              dropDownDirection="BOTTOM"
-            />
-          </View>
-
-          <View style={{...styles.leftView, zIndex: 50}}>
-            <Image
-              source={require('../../../../assets/images/ball.png')}
-              style={styles.imageView}
-            />
-            <DropDownPicker
-              open={pacer}
-              value={pacerValue}
-              items={items5}
-              setOpen={setPacer}
-              setValue={setPacerValue}
-              setItems={setItems5}
-              zIndex={2}
-              zIndexInverse={1}
-              placeholder="Pacer"
-              showArrowIcon={false}
-              placeholderStyle={styles.placeholderStyle}
-              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
-              listItemLabelStyle={{marginLeft: 20}}
-              listMode="SCROLLVIEW"
-              dropDownDirection="BOTTOM"
-            />
-          </View>
-
-          <View style={{...styles.rightView, zIndex: 40}}>
-            <Image
-              source={require('../../../../assets/images/all.png')}
-              style={styles.imageView}
-            />
-            <DropDownPicker
-              open={allrounder}
-              value={allrounderValue}
-              items={items6}
-              setOpen={setAllrounder}
-              setValue={setAllrounderValue}
-              setItems={setItems6}
-              zIndex={2}
-              zIndexInverse={1}
-              placeholder="All rounder"
-              showArrowIcon={false}
-              placeholderStyle={styles.placeholderStyle}
-              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
-              listItemLabelStyle={{marginLeft: 20}}
-              listMode="SCROLLVIEW"
-              dropDownDirection="BOTTOM"
-            />
-          </View>
-
-          <AppButton
-            title="Continue"
-            onPress={() => navigation.navigate('Confirm')}
-          />
         </ScrollView>
       </SafeAreaView>
     </View>
@@ -253,15 +246,12 @@ const styles = StyleSheet.create({
   },
   leftView: {
     width: widthPercentageToDP('60%'),
-    marginLeft: 10,
-    marginTop: 20,
     flexDirection: 'row',
     alignSelf: 'flex-start',
+    position: 'relative',
   },
   rightView: {
     width: widthPercentageToDP('60%'),
-    marginRight: 10,
-    marginTop: 20,
     flexDirection: 'row',
     alignSelf: 'flex-end',
     position: 'relative',
@@ -272,16 +262,9 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     tintColor: '#777777',
     position: 'absolute',
-    top: 10,
+    top: 30,
     left: 20,
     zIndex: 10,
-  },
-  placeholderStyle: {
-    color: 'gray',
-    fontWeight: 'bold',
-    fontSize: 20,
-    paddingLeft: 50,
-    marginLeft: 20,
   },
   appButtonContainer: {
     elevation: 8,
@@ -290,7 +273,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12,
     width: widthPercentageToDP('80%'),
-    marginLeft: 50,
+    marginLeft: 20,
     marginTop: 30,
     marginBottom: 30,
   },
@@ -301,4 +284,17 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textTransform: 'uppercase',
   },
+  dropdown1BtnStyle: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#FFF',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#444',
+    marginTop: 20,
+  },
+  dropdown1BtnTxtStyle: {color: '#444', textAlign: 'center'},
+  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF'},
+  dropdown1RowStyle: {backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5'},
+  dropdown1RowTxtStyle: {color: '#444', textAlign: 'left'},
 });

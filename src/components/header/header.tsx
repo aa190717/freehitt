@@ -23,7 +23,7 @@ const Header = props => {
         <Image
           source={require('../../assets/images/banner.png')}
           style={{
-            height: heightPercentageToDP('20%'),
+            maxHeight: heightPercentageToDP('20%'),
             width: widthPercentageToDP('100%'),
           }}
         />
