@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
   Alert,
@@ -24,6 +25,7 @@ const AppButton = ({onPress, title}) => (
 );
 
 export const SelectorScreen = () => {
+  const navigation = useNavigation();
   const [spiner, setSpiner] = useState(false);
   const [spinerValue, setSpinerValue] = useState(false);
 
@@ -71,15 +73,28 @@ export const SelectorScreen = () => {
       <SafeAreaView>
         <ScrollView nestedScrollEnabled={true}>
           <Image
-            source={require('./sample.jpg')}
+            source={require('../../../../assets/images/event.png')}
             style={{
               height: heightPercentageToDP('20%'),
               width: widthPercentageToDP('100%'),
             }}
           />
+          <View
+            style={{
+              height: 50,
+              width: widthPercentageToDP('100%'),
+              backgroundColor: '#D1CBCB',
+            }}>
+            <Text style={{marginLeft: 20, marginTop: 15, fontWeight: 'bold'}}>
+              Banglore vs Mumbai
+            </Text>
+          </View>
 
           <View style={{...styles.leftView, zIndex: 90}}>
-            <Image source={require('./wicket.png')} style={styles.imageView} />
+            <Image
+              source={require('../../../../assets/images/wicket.png')}
+              style={styles.imageView}
+            />
             <DropDownPicker
               open={spiner}
               value={spinerValue}
@@ -92,12 +107,18 @@ export const SelectorScreen = () => {
               placeholder="Spiner"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
+              listItemLabelStyle={{marginLeft: 20}}
               listMode="SCROLLVIEW"
+              dropDownDirection="BOTTOM"
             />
           </View>
 
           <View style={{...styles.rightView, zIndex: 80}}>
-            <Image source={require('./filder.png')} style={styles.imageView} />
+            <Image
+              source={require('../../../../assets/images/filder.png')}
+              style={styles.imageView}
+            />
             <DropDownPicker
               open={filder}
               value={filderValue}
@@ -110,12 +131,18 @@ export const SelectorScreen = () => {
               placeholder="Filder"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
+              listItemLabelStyle={{marginLeft: 20}}
               listMode="SCROLLVIEW"
+              dropDownDirection="BOTTOM"
             />
           </View>
 
           <View style={{...styles.leftView, zIndex: 70}}>
-            <Image source={require('./keeper.png')} style={styles.imageView} />
+            <Image
+              source={require('../../../../assets/images/keeper.png')}
+              style={styles.imageView}
+            />
             <DropDownPicker
               open={keeper}
               value={keeperValue}
@@ -128,12 +155,18 @@ export const SelectorScreen = () => {
               placeholder="Keeper"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
+              listItemLabelStyle={{marginLeft: 20}}
               listMode="SCROLLVIEW"
+              dropDownDirection="BOTTOM"
             />
           </View>
 
           <View style={{...styles.rightView, zIndex: 60}}>
-            <Image source={require('./bat.png')} style={styles.imageView} />
+            <Image
+              source={require('../../../../assets/images/bat.png')}
+              style={styles.imageView}
+            />
             <DropDownPicker
               open={batsman}
               value={batsmanValue}
@@ -146,12 +179,18 @@ export const SelectorScreen = () => {
               placeholder="Batsman"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
+              listItemLabelStyle={{marginLeft: 20}}
               listMode="SCROLLVIEW"
+              dropDownDirection="BOTTOM"
             />
           </View>
 
           <View style={{...styles.leftView, zIndex: 50}}>
-            <Image source={require('./ball.png')} style={styles.imageView} />
+            <Image
+              source={require('../../../../assets/images/ball.png')}
+              style={styles.imageView}
+            />
             <DropDownPicker
               open={pacer}
               value={pacerValue}
@@ -164,12 +203,18 @@ export const SelectorScreen = () => {
               placeholder="Pacer"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
+              listItemLabelStyle={{marginLeft: 20}}
               listMode="SCROLLVIEW"
+              dropDownDirection="BOTTOM"
             />
           </View>
 
           <View style={{...styles.rightView, zIndex: 40}}>
-            <Image source={require('./all.png')} style={styles.imageView} />
+            <Image
+              source={require('../../../../assets/images/all.png')}
+              style={styles.imageView}
+            />
             <DropDownPicker
               open={allrounder}
               value={allrounderValue}
@@ -177,9 +222,13 @@ export const SelectorScreen = () => {
               setOpen={setAllrounder}
               setValue={setAllrounderValue}
               setItems={setItems6}
+              zIndex={2}
+              zIndexInverse={1}
               placeholder="All rounder"
               showArrowIcon={false}
               placeholderStyle={styles.placeholderStyle}
+              textStyle={{marginLeft: 50, fontWeight: 'bold'}}
+              listItemLabelStyle={{marginLeft: 20}}
               listMode="SCROLLVIEW"
               dropDownDirection="BOTTOM"
             />
@@ -187,7 +236,7 @@ export const SelectorScreen = () => {
 
           <AppButton
             title="Continue"
-            onPress={() => Alert.alert('Simple Button pressed')}
+            onPress={() => navigation.navigate('Confirm')}
           />
         </ScrollView>
       </SafeAreaView>
@@ -232,6 +281,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     paddingLeft: 50,
+    marginLeft: 20,
   },
   appButtonContainer: {
     elevation: 8,

@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 export const OnGoing = () => {
   return (
     <View style={{justifyContent: 'center', alignItems: 'center', height: 400}}>
-      <Text>I am ongoing screen</Text>
+      <Text>Coming soon...</Text>
     </View>
   );
 };

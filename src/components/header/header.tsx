@@ -11,7 +11,6 @@ import {
   widthPercentageToDP,
   heightPercentageToDP,
 } from 'react-native-responsive-screen';
-import WithLocalSvg, {SvgUri} from 'react-native-svg';
 
 const Header = props => {
   const {navigationState, navigation, activeTintColor, inactiveTintColor} =
@@ -22,7 +21,7 @@ const Header = props => {
     <View>
       <View>
         <Image
-          source={require('./sample.jpg')}
+          source={require('../../assets/images/banner.png')}
           style={{
             height: heightPercentageToDP('20%'),
             width: widthPercentageToDP('100%'),
