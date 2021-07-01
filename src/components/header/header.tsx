@@ -5,15 +5,15 @@ import {
   Text,
   StyleSheet,
   TouchableWithoutFeedback,
-  Image,
+  Image
 } from 'react-native';
 import {
   widthPercentageToDP,
-  heightPercentageToDP,
+  heightPercentageToDP
 } from 'react-native-responsive-screen';
 
 const Header = props => {
-  const {navigationState, navigation, activeTintColor, inactiveTintColor} =
+  const { navigationState, navigation, activeTintColor, inactiveTintColor } =
     props;
   const activeTabIndex = navigation.state.index;
 
@@ -24,11 +24,11 @@ const Header = props => {
           source={require('../../assets/images/banner.png')}
           style={{
             maxHeight: heightPercentageToDP('20%'),
-            width: widthPercentageToDP('100%'),
+            width: widthPercentageToDP('100%')
           }}
         />
       </View>
-      <View style={styles.tabContainer}>
+      <View style={styles.tab_container}>
         {navigationState.routes.map((route, index) => {
           const isRouteActive = index === activeTabIndex;
           const tintColor = isRouteActive ? activeTintColor : inactiveTintColor;
@@ -40,10 +40,9 @@ const Header = props => {
               <View>
                 <Text
                   style={{
-                    fontSize: 17,
-                    textTransform: 'uppercase',
+                    ...styles.tab_names,
                     color: `${tintColor}`,
-                    fontWeight: `${isRouteActive ? 'bold' : 'normal'}`,
+                    fontWeight: `${isRouteActive ? 'bold' : 'normal'}`
                   }}>
                   {route.routeName}
                 </Text>
@@ -57,32 +56,18 @@ const Header = props => {
 };
 
 const styles = StyleSheet.create({
-  containerHeader: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 150,
-  },
-  textContainer: {
-    marginVertical: 30,
-    paddingTop: 30,
-  },
-  textWhite: {
-    color: 'black',
-  },
-  tabContainer: {
+  tab_container: {
     backgroundColor: 'white',
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 10,
     alignItems: 'center',
-    height: 60,
+    height: 60
   },
-  stretch: {
-    width: 50,
-    height: 20,
-    resizeMode: 'stretch',
-  },
+  tab_names: {
+    fontSize: 17,
+    textTransform: 'uppercase'
+  }
 });
 export default Header;

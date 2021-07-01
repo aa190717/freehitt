@@ -1,36 +1,39 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   ImageBackground,
   SafeAreaView,
   ScrollView,
+  StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import {
   heightPercentageToDP,
-  widthPercentageToDP,
+  widthPercentageToDP
 } from 'react-native-responsive-screen';
-import {useDispatch, useSelector} from 'react-redux';
-import {getEventsActions} from '../../../states/events/events.action';
-import {RootState} from '../../../states/store';
-import {LoadingIndicator} from '../../../components/loading/loading';
+import { useDispatch } from 'react-redux';
+import { getEventsActions } from '../../../states/events/events.action';
+import { LoadingIndicator } from '../../../components/loading/loading';
+import { Selector } from '../../../states/selector';
 
 export const Live = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const events: any = useSelector((state: RootState) => {
-    return state.event.events;
-  });
-  const date = new Date();
-  date.setDate(date.getMinutes() + 59);
-  const time = date.getMinutes() + ':' + date.getSeconds();
+  const events: any = Selector().events;
+
+  const formatTime = (dateString: string) => {
+    const date = new Date(dateString);
+    date.setDate(date.getMinutes() + 59);
+    return date.getMinutes() + ':' + date.getSeconds();
+  };
+
   useEffect(() => {
     dispatch(getEventsActions());
   }, []);
   return (
-    <View style={{justifyContent: 'center', alignItems: 'center'}}>
+    <View style={styles.main_view}>
       <SafeAreaView>
         <ScrollView>
           {events ? (
@@ -41,45 +44,19 @@ export const Live = () => {
                   onPress={() => navigation.navigate('Selector')}>
                   <ImageBackground
                     source={require('../../../assets/images/event.png')}
-                    style={{
-                      height: heightPercentageToDP('15%'),
-                      width: widthPercentageToDP('90%'),
-                      marginTop: 20,
-                    }}>
-                    <Text style={{marginTop: 20, marginLeft: 20}}>
-                      Live - {time}
+                    style={styles.image_bg}>
+                    <Text style={styles.image_bg_text}>
+                      Live - {formatTime(y.startTime)}
                     </Text>
-                    <View
-                      style={{
-                        position: 'absolute',
-                        top: 90,
-                        left: 20,
-                        right: 0,
-                        bottom: 0,
-                      }}>
-                      <Text
-                        style={{
-                          fontWeight: 'bold',
-                          color: '#FFF',
-                          fontSize: 18,
-                        }}>
-                        Banglore vs Mumbai
-                      </Text>
-                      <Text style={{color: '#FFF', fontSize: 10}}>
+                    <View style={styles.image_bg_view}>
+                      <Text style={styles.image_bg_view_text}>{y.name}</Text>
+                      <Text style={styles.image_bg_view_sub_text}>
                         Indian Premier League
                       </Text>
                     </View>
                   </ImageBackground>
-                  <View
-                    style={{
-                      width: widthPercentageToDP('90%'),
-                      height: 60,
-                      backgroundColor: '#1f202c',
-                    }}>
-                    <Text
-                      style={{color: '#fff', marginTop: 20, marginLeft: 20}}>
-                      Win prize
-                    </Text>
+                  <View style={styles.image_sub_view}>
+                    <Text style={styles.image_sub_view_text}>Win prize</Text>
                   </View>
                 </TouchableOpacity>
               );
@@ -92,3 +69,38 @@ export const Live = () => {
     </View>
   );
 };
+const styles = StyleSheet.create({
+  main_view: { justifyContent: 'center', alignItems: 'center' },
+  image_bg: {
+    height: heightPercentageToDP('15%'),
+    width: widthPercentageToDP('90%'),
+    marginTop: 20
+  },
+  image_bg_text: { marginTop: 20, marginLeft: 20 },
+  image_bg_view: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+    right: 0,
+    bottom: 0
+  },
+  image_bg_view_text: {
+    fontWeight: 'bold',
+    color: '#FFF',
+    fontSize: 18
+  },
+  image_bg_view_sub_text: {
+    color: '#FFF',
+    fontSize: 10
+  },
+  image_sub_view: {
+    width: widthPercentageToDP('90%'),
+    height: 60,
+    backgroundColor: '#1f202c'
+  },
+  image_sub_view_text: {
+    color: '#fff',
+    marginTop: 20,
+    marginLeft: 20
+  }
+});
