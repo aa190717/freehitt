@@ -1,5 +1,5 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import {
   Image,
   SafeAreaView,
@@ -7,15 +7,15 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import {
   heightPercentageToDP,
-  widthPercentageToDP,
+  widthPercentageToDP
 } from 'react-native-responsive-screen';
 import SelectDropdown from 'react-native-select-dropdown';
 
-const AppButton = ({onPress, title}) => (
+const AppButton = ({ onPress, title }) => (
   <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
     <Text style={styles.appButtonText}>{title}</Text>
   </TouchableOpacity>
@@ -37,23 +37,23 @@ export const SelectorScreen = () => {
             source={require('../../../../assets/images/event.png')}
             style={{
               height: heightPercentageToDP('20%'),
-              width: widthPercentageToDP('100%'),
+              width: widthPercentageToDP('100%')
             }}
           />
           <View
             style={{
               height: 50,
               width: widthPercentageToDP('100%'),
-              backgroundColor: '#D1CBCB',
+              backgroundColor: '#D1CBCB'
             }}>
-            <Text style={{marginLeft: 20, marginTop: 15, fontWeight: 'bold'}}>
+            <Text style={{ marginLeft: 20, marginTop: 15, fontWeight: 'bold' }}>
               Banglore vs Mumbai
             </Text>
           </View>
-          <View style={{marginLeft: 20, marginRight: 20,}}>
+          <View style={{ marginLeft: 20, marginRight: 20 }}>
             <View
               style={{
-                ...styles.leftView,
+                ...styles.leftView
               }}>
               <Image
                 source={require('../../../../assets/images/wicket.png')}
@@ -82,7 +82,7 @@ export const SelectorScreen = () => {
 
             <View
               style={{
-                ...styles.rightView,
+                ...styles.rightView
               }}>
               <Image
                 source={require('../../../../assets/images/filder.png')}
@@ -111,7 +111,7 @@ export const SelectorScreen = () => {
 
             <View
               style={{
-                ...styles.leftView,
+                ...styles.leftView
               }}>
               <Image
                 source={require('../../../../assets/images/filder.png')}
@@ -140,7 +140,7 @@ export const SelectorScreen = () => {
 
             <View
               style={{
-                ...styles.rightView,
+                ...styles.rightView
               }}>
               <Image
                 source={require('../../../../assets/images/filder.png')}
@@ -169,7 +169,7 @@ export const SelectorScreen = () => {
 
             <View
               style={{
-                ...styles.leftView,
+                ...styles.leftView
               }}>
               <Image
                 source={require('../../../../assets/images/filder.png')}
@@ -199,7 +199,7 @@ export const SelectorScreen = () => {
             <View
               style={{
                 ...styles.rightView,
-                zIndex: 80,
+                zIndex: 80
               }}>
               <Image
                 source={require('../../../../assets/images/filder.png')}
@@ -237,24 +237,17 @@ export const SelectorScreen = () => {
   );
 };
 const styles = StyleSheet.create({
-  pickerIcon: {
-    position: 'absolute',
-    bottom: 15,
-    right: 10,
-    fontSize: 20,
-    marginTop: 200,
-  },
   leftView: {
     width: widthPercentageToDP('60%'),
     flexDirection: 'row',
     alignSelf: 'flex-start',
-    position: 'relative',
+    position: 'relative'
   },
   rightView: {
     width: widthPercentageToDP('60%'),
     flexDirection: 'row',
     alignSelf: 'flex-end',
-    position: 'relative',
+    position: 'relative'
   },
   imageView: {
     width: 30,
@@ -264,7 +257,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 30,
     left: 20,
-    zIndex: 10,
+    zIndex: 10
   },
   appButtonContainer: {
     elevation: 8,
@@ -275,14 +268,14 @@ const styles = StyleSheet.create({
     width: widthPercentageToDP('80%'),
     marginLeft: 20,
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 30
   },
   appButtonText: {
     fontSize: 18,
     color: '#fff',
     fontWeight: 'bold',
     alignSelf: 'center',
-    textTransform: 'uppercase',
+    textTransform: 'uppercase'
   },
   dropdown1BtnStyle: {
     width: '100%',
@@ -291,10 +284,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#444',
-    marginTop: 20,
+    marginTop: 20
   },
-  dropdown1BtnTxtStyle: {color: '#444', textAlign: 'center'},
-  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF'},
-  dropdown1RowStyle: {backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5'},
-  dropdown1RowTxtStyle: {color: '#444', textAlign: 'left'},
+  dropdown1BtnTxtStyle: { color: '#444', textAlign: 'center' },
+  dropdown1DropdownStyle: { backgroundColor: '#EFEFEF' },
+  dropdown1RowStyle: {
+    backgroundColor: '#EFEFEF',
+    borderBottomColor: '#C5C5C5'
+  },
+  dropdown1RowTxtStyle: { color: '#444', textAlign: 'left' }
 });

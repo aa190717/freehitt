@@ -1,7 +1,7 @@
-import {GET_EVENTS_SUCCESS, GET_EVENTS_FAILURE} from '../action-types';
+import { GET_EVENTS_SUCCESS, GET_EVENTS_FAILURE } from '../action-types';
 
 const initialState = {
-  isLoading: false,
+  isLoading: false
 };
 
 export const eventsReducer = (state = initialState, action: any) => {
@@ -9,11 +9,11 @@ export const eventsReducer = (state = initialState, action: any) => {
     case GET_EVENTS_SUCCESS:
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
     case GET_EVENTS_FAILURE:
       return {
-        ...state,
+        ...state
       };
     default:
       return state;

@@ -4,18 +4,18 @@ const Api = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com',
   timeout: 1000,
   headers: {
-    'Content-Type': 'application/json',
-  },
+    'Content-Type': 'application/json'
+  }
 });
 
 Api.interceptors.request.use(
   req => req,
-  err => err,
+  err => err
 );
 
 Api.interceptors.response.use(
   res => res.data,
-  err => err,
+  err => err
 );
 
 export default Api;

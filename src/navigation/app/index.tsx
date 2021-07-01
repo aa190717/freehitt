@@ -1,10 +1,10 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen} from '../../screens';
-import {SelectorScreen} from '../../screens/events/live/selector';
-import {ConfirmSelection} from '../../screens/events/live/confirm-selection';
-import {Wildcard} from '../../screens/events/live/wildcard-selection';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { HomeScreen } from '../../screens';
+import { SelectorScreen } from '../../screens/events/live/selector';
+import { ConfirmSelection } from '../../screens/events/live/confirm-selection';
+import { Wildcard } from '../../screens/events/live/wildcard-selection';
 
 const Stack = createStackNavigator();
 
